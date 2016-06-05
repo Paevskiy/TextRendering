@@ -23,8 +23,8 @@ namespace TextRendering
             //var text = webClient.DownloadString("http://vojnaimir.ru/files/book1.txt");
             File.WriteAllText("StringText.txt", text);
             // разбиваем текст на предложения
-            var CentensesRegex= new Regex("[А-ЯA-Z]((т.п.|т.д.|пр.)|[^?!.\\(]|\\([^\\)]*\\))*[.?!]");
-            var StringCollection = CentensesRegex.Matches(text)
+            var SentencesRegex= new Regex("[А-ЯA-Z]((т.п.|т.д.|пр.)|[^?!.\\(]|\\([^\\)]*\\))*[.?!]");
+            var StringCollection = SentencesRegex.Matches(text)
                 .OfType<Match>()
                 .Select(s => s.Value)
                 .ToList();
